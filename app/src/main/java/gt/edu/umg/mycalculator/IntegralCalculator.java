@@ -60,14 +60,30 @@ public class IntegralCalculator {
     }
 
     public static double calcularIntegralImpropia(String funcion, double a, double b) {
-        if (Double.isInfinite(b)) {
-            // Caso límite superior infinito
-            return calcularIntegralDefinida(funcion, a, 100, 1000); // Aproximación
-        } else if (Double.isInfinite(a)) {
-            // Caso límite inferior infinito
-            return calcularIntegralDefinida(funcion, -100, b, 1000); // Aproximación
+        Log.d("Calculadora", "Calculando integral impropia de: " + funcion);
+        Log.d("Calculadora", "Límites: de " + a + " a " + b);
+
+        try {
+            // Caso 1: Límite superior es infinito
+            if (Double.isInfinite(b) && !Double.isInfinite(a)) {
+                return calcularIntegralLimiteInfinitoSuperior(funcion, a);
+            }
+            // Caso 2: Límite inferior es infinito
+            else if (Double.isInfinite(a) && !Double.isInfinite(b)) {
+                return calcularIntegralLimiteInfinitoInferior(funcion, b);
+            }
+            // Caso 3: Ambos límites son infinitos
+            else if (Double.isInfinite(a) && Double.isInfinite(b)) {
+                return calcularIntegralLimitesInfinitos(funcion);
+            }
+            // Caso 4: Discontinuidad en uno de los límites
+            else {
+                return calcularIntegralDefinida(funcion, a, b, 1000);
+            }
+        } catch (Exception e) {
+            Log.e("Calculadora", "Error en integral impropia", e);
+            throw new RuntimeException("Error en el cálculo de la integral impropia: " + e.getMessage());
         }
-        return calcularIntegralDefinida(funcion, a, b, 1000);
     }
 
     public static double calcularValorPromedio(String funcion, double a, double b) {
@@ -509,4 +525,110 @@ public class IntegralCalculator {
             throw new RuntimeException("Error en el cálculo: " + e.getMessage());
         }
     }
+
+    private static double calcularIntegralLimiteInfinitoSuperior(String funcion, double a) {
+        // Para integrales de a hasta infinito, usamos la sustitución t = 1/(1+x)
+        final int PASOS = 1000;
+        double suma = 0;
+        double h = (1.0) / PASOS; // Intervalo [0,1] para t
+
+        try {
+            for (int i = 0; i <= PASOS; i++) {
+                double t = i * h;
+                if (t == 0) continue; // Evitar división por cero
+
+                // La sustitución convierte x = (1-t)/t
+                double x = (1-t)/t + a;
+                CalculadoraActivity.Calculadora.setValorX(x);
+                double fx = CalculadoraActivity.Calculadora.evaluar(funcion);
+
+                // Factor del método del trapecio y el jacobiano dx/dt = -1/t^2
+                double factor = (i == 0 || i == PASOS) ? 1 : 2;
+                suma += factor * (fx / (t * t));
+            }
+
+            double resultado = h/2 * suma;
+            Log.d("Calculadora", "Resultado integral impropia superior: " + resultado);
+            return resultado;
+
+        } catch (Exception e) {
+            Log.e("Calculadora", "Error en integral impropia superior", e);
+            throw e;
+        }
+    }
+    private static double calcularIntegralLimiteInfinitoInferior(String funcion, double b) {
+        final int PASOS = 1000;
+        double suma = 0;
+        double h = 1.0 / PASOS;
+
+        try {
+            Log.d("Calculadora", "Calculando integral impropia inferior de " + funcion);
+            Log.d("Calculadora", "Desde -infinito hasta " + b);
+
+            for (int i = 0; i <= PASOS; i++) {
+                double t = i * h;  // t va de 0 a 1
+                if (t == 0) continue;  // Evitar el punto donde x sería infinito
+
+                // Sustitución: x = b - 1/t
+                double x = b - 1/t;
+                CalculadoraActivity.Calculadora.setValorX(x);
+                double fx = CalculadoraActivity.Calculadora.evaluar(funcion);
+
+                // El factor 2 es para el método del trapecio
+                double factor = (i == 0 || i == PASOS) ? 1 : 2;
+                // El jacobiano es 1/t²
+                suma += factor * fx / (t * t);
+
+                Log.d("Calculadora", "t=" + t + ", x=" + x + ", f(x)=" + fx);
+            }
+
+            double resultado = h/2 * suma;
+            Log.d("Calculadora", "Resultado final: " + resultado);
+            return resultado;
+
+        } catch (Exception e) {
+            Log.e("Calculadora", "Error en integral impropia inferior", e);
+            throw e;
+        }
+    }
+    private static double calcularIntegralLimitesInfinitos(String funcion) {
+        // Para integrales de -∞ a ∞, usamos la sustitución u = tan(t)
+        final int PASOS = 1000;
+        double suma = 0;
+        double h = (Math.PI - (-Math.PI/2)) / PASOS;
+
+        for (int i = 0; i <= PASOS; i++) {
+            double t = -Math.PI/2 + i * h;
+            double x = Math.tan(t);
+            CalculadoraActivity.Calculadora.setValorX(x);
+            double fx = CalculadoraActivity.Calculadora.evaluar(funcion);
+
+            double factor = (i == 0 || i == PASOS) ? 1 : 2;
+            suma += factor * (fx * (1 + x * x)); // Incluir el jacobiano dx/dt = sec²(t)
+        }
+
+        return (h/2) * suma;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

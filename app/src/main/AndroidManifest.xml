@@ -18,6 +18,7 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,8 +27,9 @@
 
         <activity
             android:name=".CalculadoraActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustNothing"/>
+            <!-- otros atributos de la actividad -->
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".CreditosActivity"
             android:screenOrientation="portrait" />

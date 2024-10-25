@@ -40,11 +40,16 @@ public class CalculadoraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculadora);
 
         // Inicialización de vistas
+        // Inicialización de vistas
         inicializarVistas();
         // Configuración de listeners
         configurarListeners();
         // Configuración del Spinner
         configurarSpinner();
+        // Añadir esta línea
+        configurarEditTextLimites();
+
+        deshabilitarTecladoSistema();
 
 
 
@@ -140,25 +145,42 @@ public class CalculadoraActivity extends AppCompatActivity {
                 txtPantalla.setText(nuevoTexto);
             }
         });
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.opciones_integrales, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_Integrales.setAdapter(adapter);
+
         spinner_Integrales.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 metodoSeleccionado = position;
                 layoutLimites.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 String seleccion = parentView.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), "Seleccionado: " + seleccion, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Seleccionado: " + seleccion,
+                        Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 metodoSeleccionado = 0;
                 layoutLimites.setVisibility(View.GONE);
             }
         });
+
     }
+        private void configurarEditTextLimites() {
+            Button btnInfinito = findViewById(R.id.btnInfinito);
+            btnInfinito.setOnClickListener(v -> {
+                if (etlimiteInferior.hasFocus()) {
+                    etlimiteInferior.setText("∞");
+                } else if (etLimiteSuperior.hasFocus()) {
+                    etLimiteSuperior.setText("∞");
+                }
+            });
+            }
+
+
     private void inicializarVistas() {
         layoutLimites = findViewById(R.id.layoutLimites);
         etlimiteInferior = findViewById(R.id.etLimiteInferior);
@@ -169,6 +191,25 @@ public class CalculadoraActivity extends AppCompatActivity {
         // Inicialmente ocultar el layout de límites
         layoutLimites.setVisibility(View.GONE);
     }
+
+    private void deshabilitarTecladoSistema() {
+        etlimiteInferior.setShowSoftInputOnFocus(false);
+        etLimiteSuperior.setShowSoftInputOnFocus(false);
+
+        // Prevenir que se muestre el teclado al tocar los EditText
+        View.OnTouchListener bloquearTeclado = (v, event) -> {
+            v.onTouchEvent(event);
+            EditText editText = (EditText) v;
+            editText.requestFocus();
+            return true;
+        };
+
+        etlimiteInferior.setOnTouchListener(bloquearTeclado);
+        etLimiteSuperior.setOnTouchListener(bloquearTeclado);
+    }
+
+
+    
     private void configurarListeners() {
         // Configurar botones numéricos
         configurarBotonesNumericos();
@@ -495,6 +536,12 @@ public class CalculadoraActivity extends AppCompatActivity {
                     double valorY = Double.parseDouble(valorYStr);
                     resultado = IntegralCalculator.calcularIntegralDerivadaParcial(
                             funcion, varDerivada.charAt(0), limInf, limSup, valorY, 1000);
+                    break;
+                case 14:// solidos de revolucion
+
+
+
+
                     break;
 
 

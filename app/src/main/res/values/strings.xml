@@ -5,24 +5,26 @@
     <string name="btnCredit">Creditos</string>
     <string name="btnCalculadora">Calculadora</string>
     <string name="creditos_texto">
+
         Fin de Créditossssssssssssssssssssss.
     </string>
 
     <string-array name="opciones_integrales">
         <item>Seleccione un método</item>
-        <item>Área bajo la curva</item>
-        <item>Integrales definidas</item>
-        <item>Integrales impropias</item>
-        <item>Integración por partes</item>
-        <item>Valor promedio de la función</item>
-        <item>Integración volumen soli Arandelas</item>
-        <item>Integración volumen soli Cascarones</item>
-        <item>Integración Volumen soli Discos</item>>
-        <item>Integrales trigonométricas</item>
-        <item>Integración por sustitución</item>
-        <item>Valor medio integral</item>
-        <item>Integración por Partes</item>
-        <item>Integral Derivadas Parciales</item>
+        <item>Área bajo la curva</item>\\1
+        <item>Integrales definidas</item>\\2
+        <item>Integrales impropias</item>\\3
+        <item>Integración por partes</item>\\4
+        <item>Valor promedio de la función</item>\\5
+        <item>Integración volumen soli Arandelas</item>\\6
+        <item>Integración volumen soli Cascarones</item>\\6
+        <item>Integración Volumen soli Discos</item>>\\6
+        <item>Integrales trigonométricas</item>\\7
+        <item>Integración por sustitución</item>\\8
+        <item>Valor medio integral</item>\\9
+        <item>Integración por Partes</item>\\10
+        <item>Integral Derivadas Parciales</item>\\11
+
     </string-array>
 
 </resources>

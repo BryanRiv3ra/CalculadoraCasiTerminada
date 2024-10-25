@@ -11,71 +11,88 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp" />
+
+    <!-- Layout principal para límites -->
     <LinearLayout
         android:id="@+id/layoutLimites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="8dp"
-        android:visibility="visible">
-        <EditText
-            android:id="@+id/etLimiteInferior"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="#297373"
-            android:hint="Límite inferior"
-            android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/black"
-            android:textColorHint="#808080"
-            android:visibility="visible" />
+        android:visibility="gone">
 
-        <EditText
-            android:id="@+id/etLimiteSuperior"
-            android:layout_width="0dp"
+        <!-- Layout horizontal para límites inferior y superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_weight="1"
-            android:backgroundTint="#297373"
-            android:hint="Límite superior"
-            android:inputType="numberDecimal|numberSigned"
-            android:textColor="@color/black"
-            android:textColorHint="#808080" />
+            android:orientation="horizontal">
 
+            <EditText
+                android:id="@+id/etLimiteInferior"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:hint="Límite inferior"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:longClickable="false"
+                android:textIsSelectable="false"
+                android:inputType="none"
+                android:textColorHint="#808080" />
+
+            <EditText
+                android:id="@+id/etLimiteSuperior"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:hint="Límite superior"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:longClickable="false"
+                android:textIsSelectable="false"
+                android:inputType="none"
+                android:textColorHint="#808080" />
+        </LinearLayout>
+
+        <!-- Campos adicionales en vertical -->
         <EditText
             android:id="@+id/etSustitucion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Ingrese sustitución u = ..."
-            android:layout_below="@id/txtPantalla"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/etFuncionDV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Ingrese dv"
-            android:layout_below="@id/txtPantalla"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/etVariableDerivada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Variable de derivación (x o y)"
-            android:layout_below="@id/txtPantalla"
-            android:visibility="visible"/>
+            android:visibility="gone" />
 
         <EditText
             android:id="@+id/etValorY"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Valor de y"
-            android:layout_below="@id/etVariableDerivada"
-            android:visibility="visible"/>
+            android:visibility="gone" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/txtPantalla"
         android:layout_width="match_parent"
