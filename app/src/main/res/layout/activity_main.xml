@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:backgroundTint="@color/white"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnCredits"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewINICIO"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Credits" />
+        android:backgroundTint="#FF7B00"
+        android:text="CALCULADORA DE INTEGRALES"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        tools:background="#FF7B00" />
 
-    <Button
-        android:id="@+id/btnCalculator"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calculator"
-        android:layout_marginTop="16dp" />
+        android:backgroundTint="@color/white"
+        android:text="APLICACION DE TEMAS VISTOS EN CLASE"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btnAbrirUrl"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Visitar página"
-        android:layout_gravity="center"
-        android:padding="16dp" />
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnCalculator"
+            android:layout_width="140dp"
+            android:layout_height="63dp"
+            android:layout_margin="8dp"
+            android:text="Calculator"
+            tools:backgroundTint="@color/material_dynamic_primary70" />
+
+        <Button
+            android:id="@+id/btnAbrirUrl"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:padding="16dp"
+            android:text="Visitar página" />
+
+        <Button
+            android:id="@+id/btnCredits"
+            android:layout_width="140dp"
+            android:layout_height="59dp"
+            android:layout_margin="8dp"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:text="Credits" />
+
+    </LinearLayout>
 
 </LinearLayout>
