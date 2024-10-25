@@ -49,10 +49,6 @@ public class CalculadoraActivity extends AppCompatActivity {
         // Añadir esta línea
         configurarEditTextLimites();
 
-        deshabilitarTecladoSistema();
-
-
-
        Spinner spinner_Integrales = findViewById(R.id.spinner_Integrales);
         Button btnRegresarcalcu = findViewById(R.id.btnRegresarcalcu);
         Button btn1 = findViewById(R.id.btn1);
@@ -192,24 +188,7 @@ public class CalculadoraActivity extends AppCompatActivity {
         layoutLimites.setVisibility(View.GONE);
     }
 
-    private void deshabilitarTecladoSistema() {
-        etlimiteInferior.setShowSoftInputOnFocus(false);
-        etLimiteSuperior.setShowSoftInputOnFocus(false);
 
-        // Prevenir que se muestre el teclado al tocar los EditText
-        View.OnTouchListener bloquearTeclado = (v, event) -> {
-            v.onTouchEvent(event);
-            EditText editText = (EditText) v;
-            editText.requestFocus();
-            return true;
-        };
-
-        etlimiteInferior.setOnTouchListener(bloquearTeclado);
-        etLimiteSuperior.setOnTouchListener(bloquearTeclado);
-    }
-
-
-    
     private void configurarListeners() {
         // Configurar botones numéricos
         configurarBotonesNumericos();
