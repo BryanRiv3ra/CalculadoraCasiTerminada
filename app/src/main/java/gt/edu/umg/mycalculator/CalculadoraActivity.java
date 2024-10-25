@@ -29,6 +29,10 @@ public class CalculadoraActivity extends AppCompatActivity {
     private int meotodosSeleccion=0;
     private String funcionActual="";
     private int metodoSeleccionado = 0;
+    private EditText etSustitucion;
+    private EditText etFuncionDV;
+    private EditText etVariableDerivada;
+    private EditText etValorY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -435,6 +439,65 @@ public class CalculadoraActivity extends AppCompatActivity {
                 case 5: // Valor promedio
                     resultado = IntegralCalculator.calcularValorPromedio(funcion, limInf, limSup);
                     break;
+
+                case 6:
+                    resultado = IntegralCalculator.calcularVolumenArandelas(funcion, limInf, limSup, 1000);
+                    break;
+
+                case 7: // Volumen por cáscarones
+                    resultado = IntegralCalculator.calcularVolumenCascarones(funcion, limInf, limSup, 1000);
+                    break;
+
+                case 8: // Volumen por discos
+                    resultado = IntegralCalculator.calcularVolumenDiscos(funcion, limInf, limSup, 1000);
+                    break;
+
+                case 9: // Integrales trigonométricas
+                    resultado = IntegralCalculator.calcularIntegralTrigonometrica(funcion, limInf, limSup, 1000);
+                    break;
+
+                case 10: // Integración por sustitución
+                    String sustitucion = etSustitucion.getText().toString();
+                    if (sustitucion.isEmpty()) {
+                        mostrarError("Ingrese una función de sustitución");
+                        return;
+                    }
+                    resultado = IntegralCalculator.calcularIntegralSustitucion(
+                            funcion, sustitucion, limInf, limSup, 1000);
+                    break;
+
+                case 11: // Valor medio
+                    resultado = IntegralCalculator.calcularValorMedioIntegral(funcion, limInf, limSup, 1000);
+                    // Opcionalmente, podemos encontrar un punto donde la función toma este valor
+                    double puntoMedio = IntegralCalculator.encontrarPuntoValorMedio(
+                            funcion, limInf, limSup, resultado, 1000);
+                    if (!Double.isNaN(puntoMedio)) {
+                        Toast.makeText(this, "La función toma el valor medio en x ≈ " +
+                                String.format("%.4f", puntoMedio), Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case 12: // Integración por partes
+                    String funcionDV = etFuncionDV.getText().toString();
+                    if (funcionDV.isEmpty()) {
+                        mostrarError("Ingrese la segunda función (dv)");
+                        return;
+                    }
+                    resultado = IntegralCalculator.calcularIntegralPorPartes(
+                            funcion, funcionDV, limInf, limSup, 1000);
+                    break;
+                case 13: // Derivadas parciales
+                    String varDerivada = etVariableDerivada.getText().toString();
+                    String valorYStr = etValorY.getText().toString();
+                    if (varDerivada.isEmpty() || valorYStr.isEmpty()) {
+                        mostrarError("Ingrese la variable y el valor de y");
+                        return;
+                    }
+                    double valorY = Double.parseDouble(valorYStr);
+                    resultado = IntegralCalculator.calcularIntegralDerivadaParcial(
+                            funcion, varDerivada.charAt(0), limInf, limSup, valorY, 1000);
+                    break;
+
+
                 default:
                     mostrarError("Método no implementado aún");
                     return;

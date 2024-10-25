@@ -30,6 +30,7 @@
             android:textColor="@color/black"
             android:textColorHint="#808080"
             android:visibility="visible" />
+
         <EditText
             android:id="@+id/etLimiteSuperior"
             android:layout_width="0dp"
@@ -41,6 +42,39 @@
             android:inputType="numberDecimal|numberSigned"
             android:textColor="@color/black"
             android:textColorHint="#808080" />
+
+        <EditText
+            android:id="@+id/etSustitucion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese sustitución u = ..."
+            android:layout_below="@id/txtPantalla"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/etFuncionDV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese dv"
+            android:layout_below="@id/txtPantalla"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/etVariableDerivada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Variable de derivación (x o y)"
+            android:layout_below="@id/txtPantalla"
+            android:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/etValorY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valor de y"
+            android:layout_below="@id/etVariableDerivada"
+            android:visibility="visible"/>
+
     </LinearLayout>
     <TextView
         android:id="@+id/txtPantalla"
