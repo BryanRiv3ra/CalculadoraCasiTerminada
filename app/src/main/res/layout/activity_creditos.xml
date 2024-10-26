@@ -12,11 +12,72 @@
 
         <TextView
             android:id="@+id/tvCreditos"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/creditos_texto" />
+            android:padding="8dp"
+            android:text="Calculadoras desarrolladas por:
+- Tulio Rene Alejandro Quintana Amezquita (0905-23-5024)
+- Melki Bladimir Ortiz Martinez (0905-23-6329)
+- Jairo Leonel Molina Hernández (0905-23-4651)
+- Mario Fernando Cerna Najera (0905-23-5025)
+- Mijeli Azucena Lucero Burgos (0905-23-5501)
+- Blanky Marisol López Marroquín (0905-23-5227)
+- Bryan Josue Rivera Hernandez (0905-23-1623)
+
+Agradecimientos especiales a:
+- Depresión, Ansiedad y Miedo, por acompañarnos en tantas noches de desvelo.
+- Mi 'padre' Vegetta777, y a las canciones de Mon Laferte y Los Temerarios: si programar me entristecía, sus canciones sumaban y ayudaban. Después de todo, (-) y (-) = (+).
+- La fórmula cuadrática, que supera cualquier factorización (aunque muchos no estén listos para esa conversación).
+- El libro Mistborn, que me inspiró a crecer como persona. Y ya que hablamos de 'persona', también agradezco a Atlus por la tremenda saga de videojuegos Persona, destacando a Persona 3 Reload y Metaphor, mis apuestas para GOTY.
+- A J.H. de la Cruz: 'Quien no conoce su historia, está condenado a repetirla.' Aunque tal vez prefiera ser JH Escobar de la Cruz... ¡Así banearé y crucificaré a quien no me haga caso!
+- Oda, por continuar dibujando el mejor manga, y por el capítulo 1130 que le dio al MCI su propia versión de Loki.
+- Linkin Park, por regresar este año junto a su nueva vocalista, Emily Amstrong, quien está haciendo un trabajo increíble.
+
+Otros agradecimientos importantes:
+- Al valiente hacker que reveló el tera de Pokémon, dándonos un motivo para temer y amar a los Typhlosions.
+- Nintendo Switch, porque sigue siendo la mejor consola de videojuegos.
+- IlolloJuan y Masi, que espero regresen pronto. No los supero, pero les agradezco.
+- Boku No Kokoro, el mejor anime RomCom, que aún me da esperanza en el amor.
+- Karmaland, por ser la mejor serie de Minecraft de todos los tiempos.
+- Al Pana Oswaldo y sus stickers legendarios.
+- Nana, una relación de amor-odio, pero sus canciones siempre serán joyas.
+
+Menciones adicionales:
+- Obama, por luchar por los derechos de la gente.
+- Las nutrias de Desafío, que hacen la serie mucho mejor.
+- La invención de los transistores, sin los cuales la tecnología sería solo un sueño.
+- Goku, por la Genkidama emocional que dio fuerzas a este proyecto.
+- Keanu Reeves, nuestro 'John Wick de los problemas', siempre solucionando con estilo.
+- Internet Explorer, que nos enseñó la paciencia y que no todo lo viejo es digno de esperar.
+- Shrek, porque los ogros y los proyectos tienen capas de complejidad.
+- La Espada Maestra, por ayudarme a cortar la procrastinación en pedacitos.
+- Las Tortugas Ninja, porque la pizza siempre será la mejor recompensa.
+- Tony Hawk y sus juegos, que enseñan que puedes caerte 500 veces, pero el kickflip existencial siempre está al alcance.
+- Nyan Cat, que iluminó con arcoíris esta travesía.
+- Bob Esponja, porque trabajar en el Crustáceo Cascarudo parece menos estresante que programar.
+- Chuck Norris, por inspirarnos a acabar el proyecto sin patear la computadora.
+- Bloodborne, porque 'YOU DIED' es una constante en la vida de todo programador.
+- Doctor Strange, por hacer que el multiverso se vea sencillo en comparación.
+- Rick Astley, porque este proyecto jamás nos 'decepcionará ni abandonará'.
+
+Menciones honoríficas:
+- La abuela de Xhabarrylla.
+- Los memes de gatos, siempre compartiendo su sabiduría inmemorial.
+- Discord, mi sala de terapia digital.
+- Matrix, porque este código se parece un poco al de la vida (aunque sin Keanu para salvarnos).
+- Mr. Beast, que me hace soñar con que algún día un millonario me pague por programar.
+- Netflix, por todas las excusas para procrastinar.
+- Windows XP, que nos hace recordar tiempos más simples.
+- Photoshop (no diremos de dónde), que ayudó a darle imagen a este caos.
+- Baby Yoda, porque su ternura me mantuvo cuerdo.
+- Los videos de 'La caída de Edgar', que nos recuerdan que, aunque nos caigamos, siempre podemos reírnos.
+- Piedra, Papel o Tijeras, el mejor simulador de decisiones en momentos críticos.
+- Elon Musk, porque en alguna línea de tiempo él también está programando calculadoras. O al menos, tuiteándolo.
+
+Gracias a todos los mencionados y a los no mencionados también, especialmente a Diosito, Google, y Stack Overflow, los verdaderos héroes detrás de cada programador."
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+
     </LinearLayout>
 </ScrollView>
